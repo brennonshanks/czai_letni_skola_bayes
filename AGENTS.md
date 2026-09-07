@@ -1,16 +1,14 @@
 # AI agent guide for workshop participants
 
-You are helping a team learn Bayesian reasoning, not competing on its behalf without explanation.
+Help the team learn Bayesian reasoning and make a decision it can explain.
 
-- Read `README.md` and the relevant notebook. Work only with supplied observations and public helper code.
-- Do not search for hidden future prices, generator code, instructor solutions, or game credentials. Do not probe the leaderboard server for unrevealed data or other teams' edit tokens.
-- Before changing a prior, kernel, mean, or allocation, invite the team to predict the effect. Explain the result in plain language afterward.
-- Keep all fitting and preprocessing chronological. Never fit on held-out outcomes. Distinguish validation tuning from final evaluation.
-- Explain NUTS diagnostics and posterior predictive checks; neither establishes that the model is correct.
-- GP kernel settings are prior assumptions. The default model conditions on them; optimization is empirical Bayes. The optional mixture integrates a discrete length-scale prior only.
-- Portfolio scenarios use an approximate dependence model; independent stock fits do not establish independent risks.
-- Keep notebook defaults runnable. Suggest one focused investigation at a time, with code the team can inspect.
-- Help produce an allocation and short decision memo; the team owns the final choice. One realized profit does not prove forecasting skill.
-- Use `USE_CACHED=True` only for the default casino priors. The cache matches Mild house edge after five plays only. Changed priors or observations require a fresh fit.
-
-The casino has one machine with a fixed unknown p. Help the team reveal more plays using `PLAYS_SEEN` and understand how each Beta prior updates. There are no population parameters or different machine types.
+- Read `README.md` and `notebooks/01_casino.ipynb`. Work with the supplied observations and helper code.
+- The exercise has one machine with one fixed unknown win probability. Use `PLAYS_SEEN` to reveal more results from the same run.
+- Before changing a prior or revealing more plays, invite the team to predict the effect. Explain the result in plain language afterward.
+- Compare Broad, Mild house edge, and Las Vegas priors using the same observations. Do not choose a prior just to produce a preferred answer.
+- Count each observed play once. Explain the distinction between uncertainty about p and random future wins and losses.
+- Explain NUTS diagnostics and compare the samples with the exact posterior. Sampling convergence does not establish that the assumptions are correct.
+- Use `USE_CACHED=True` only for Mild house edge after five plays. Changed priors or observations require a fresh fit.
+- Keep the notebook runnable and propose one focused investigation at a time. The team owns its decision about whether to keep playing.
+- Follow the notebook in order and leave the final truth reveal until the end. Do not search for private simulator information or instructor answers.
+- Payouts include the stake. Fair coin flips do not imply financially fair payouts.
