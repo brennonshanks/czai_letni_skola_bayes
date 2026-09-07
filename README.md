@@ -22,13 +22,13 @@ You are sitting in front of a slot machine whose chance of winning you do not kn
 
 Each play costs one token. A win returns 2.4 tokens in total, so you gain 1.4 tokens on a winning play and lose one token on a losing play. These are fictional tokens throughout the workshop.
 
-Before seeing any results, choose a starting belief, called a **prior**. You can be very unsure, lean gently toward a win probability around 40%, or choose a stronger “Las Vegas” prior that expresses a belief that the house probably has an edge. These are three choices of a Beta distribution, which describes possible probabilities between zero and one. The Las Vegas name is an illustration, not a claim about real casino odds.
+Before seeing any results, choose a starting belief, called a **prior**. You can be very unsure, lean gently toward a win probability around 40%, or choose a stronger “Las Vegas” prior that expresses a belief that the house probably has an edge. These are three choices of a Beta distribution, which describes possible probabilities between zero and one.
 
 Start with five plays. Combine your prior with those results to obtain your **posterior**: your updated belief about the machine's win probability. Then reveal 20, 100, and 500 plays from the same run. You will see how the posterior moves and how much uncertainty remains, and compare what would have happened if you had chosen another prior.
 
 Finally, use your posterior to predict the next 100 plays and decide whether you would keep playing. Even if you become confident about the machine's win probability, future wins and losses are still random.
 
-An additional section introduces NUTS, a sampling method based on Hamiltonian Monte Carlo. You can compare its samples with the exact posterior you have already calculated, so you have a way to check the result.
+An additional section introduces the no-U-turn-sampler (NUTS), a sampling method based on Hamiltonian Monte Carlo. You can compare its samples with the exact posterior you have already calculated, so you have a way to check the result.
 
 Open [the casino notebook](notebooks/01_casino.ipynb) to begin.
 
