@@ -65,7 +65,7 @@ For Python 3.12, use `py -3.12` in the first command. If PowerShell blocks activ
 
 These commands create a separate Python environment, install the packages, and open JupyterLab in your browser. In JupyterLab, open the `notebooks` folder and start with `01_casino.ipynb`. You can run each cell with **Shift+Enter**. Work from top to bottom, since later cells use results from earlier ones.
 
-If you prefer VS Code, you can open the notebook there instead. Select the Python environment in `.venv` as the notebook kernel.
+If you prefer VS Code, install the **Python** and **Jupyter** extensions, open the notebook there, and select the Python environment in `.venv` as the notebook kernel.
 
 Try to install the packages and run the first setup cell before the session. Installation requires internet access; the datasets are already included in your download.
 
