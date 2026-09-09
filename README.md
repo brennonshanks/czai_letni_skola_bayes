@@ -71,10 +71,6 @@ Try to install the packages and run the first setup cell before the session. Ins
 
 ## If something takes a while or goes wrong
 
-The first casino model fit can take a few minutes because PyMC needs to prepare the calculations before sampling. Later fits may be faster.
-
-If you need to keep moving, find `USE_CACHED = False` in the casino notebook and change it to `True`. This loads a fit for the Mild house edge prior after the first five plays. A different prior or number of observed plays requires a new fit with `USE_CACHED = False`.
-
 If Python says a package is missing, check that your notebook is using the same `.venv` environment where you installed the packages. If you have run cells out of order and the results seem inconsistent, restart the notebook kernel and run the cells again from the top.
 
 The notebook has optional extensions. It is fine to finish the main exercise first and return to those if you have time. Aim to explain what you chose, what evidence supported it, and which assumption you would want to investigate next.
