@@ -22,13 +22,13 @@ You are sitting in front of one slot machine with a fixed, unknown chance of win
 
 Each play costs one token. A win returns 2.4 tokens in total, so you gain 1.4 tokens on a winning play and lose one token on a losing play. These are fictional tokens.
 
-Your starting belief is called a **prior**. You can choose a broad prior, a mild house-edge prior, or a stronger “Las Vegas” prior. All three use a Beta distribution to describe possible win probabilities. The Las Vegas name is an illustration, not a claim about real casino odds.
+Your starting belief is called a **prior**. You can choose a broad prior, a mild house-edge prior, or a stronger “Las Vegas” prior. All three use a Beta distribution to describe possible win probabilities.
 
 Start with five plays, then reveal 20, 100, and 500 plays from the same run. Combine your prior with the observations to get your **posterior**, your updated belief about the machine's win probability. Compare the three priors and watch how much uncertainty remains as the evidence grows.
 
 Use the posterior to predict the next 100 plays and decide whether you would keep playing. Even when you become confident about the machine's win probability, future wins and losses remain random.
 
-An additional section introduces NUTS, a sampling method based on Hamiltonian Monte Carlo. Compare its samples with the exact posterior you have already calculated, so you have a way to check the result.
+An additional section introduces the no-U-turn-sampler (NUTS), a sampling method for posterior probability distributions based on Hamiltonian Monte Carlo. Compare its samples with the exact posterior you have already calculated, so you have a way to check the result.
 
 Open [the casino notebook](notebooks/01_casino.ipynb) to begin.
 
