@@ -50,9 +50,9 @@ The exercise uses a fixed table of simulated training results, so it runs
 quickly and consistently without a GPU. Each cached run is a noisy draw around
 a hidden smooth performance curve. That curve and the simulator's noise scale
 are kept in a separate reveal table and loaded only after the search. The final
-comparison scores GP-guided
-and random experiment selection by the true average loss at each method's
-posterior-mean recommendation, under the same eight-run budget.
+comparison scores GP-guided and random experiment selection by the true average
+loss at each method's posterior-mean recommendation, under the same eight-run
+budget, and contrasts the GP recommendation with the lowest observed run.
 
 `scripts/generate_gp_tuning_results.py` regenerates both tables from the
 documented curve, noise model, and random seed.

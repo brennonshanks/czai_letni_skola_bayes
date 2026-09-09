@@ -171,11 +171,16 @@ def test_smoothness_comparison_has_distinct_instructive_outcomes():
     assert average[recommendations[0.50]] < average[recommendations[1.50]]
 
 
-def test_lowest_observed_run_can_miss_the_best_average_loss():
+def test_default_search_reveal_distinguishes_observed_and_average_best():
     cached = _cached_table()
     truth = _truth_table()
-    # The teaching point of the reveal: selecting on noisy observations does
-    # not identify the best average loss, so the table must show that gap.
-    assert int(np.argmin(cached['validation_loss'])) != int(
-        np.argmin(truth['true_average_loss'])
-    )
+    x = cached['log10_learning_rate']
+    y = cached['validation_loss']
+    selected = run_bayesian_optimization(x, y, [2, 12, 30], budget=8)
+    lowest_observed = selected[int(np.argmin(y[selected]))]
+    true_best = int(np.argmin(truth['true_average_loss']))
+
+    # The notebook's reveal compares these two decisions, so its default path
+    # must actually demonstrate that one noisy minimum need not be best on
+    # average.
+    assert lowest_observed != true_best

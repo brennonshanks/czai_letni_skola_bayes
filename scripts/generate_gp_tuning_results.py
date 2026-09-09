@@ -9,7 +9,7 @@ Both properties are chosen here and generated from a fixed seed:
 
 * ``LATENT`` defines the true average validation loss as a function of
   ``log10(learning rate)``. It has a steep underfitting branch at tiny learning
-  rates, a smooth global optimum at ``log10(lr) = -3``, a broad shallow plateau
+  rates, a smooth global optimum near ``log10(lr) = -3``, a broad shallow plateau
   to its right that can trap an optimizer that assumes little smoothness, and
   an instability rise at large learning rates.
 * ``NOISE`` defines the true run-to-run standard deviation. It is *not*
