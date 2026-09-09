@@ -32,6 +32,24 @@ An additional section introduces NUTS, a sampling method based on Hamiltonian Mo
 
 Open [the casino notebook](notebooks/01_casino.ipynb) to begin.
 
+## AI/ML extension: Bayesian optimization
+
+After the casino exercise, try [the Gaussian-process Bayesian optimization
+notebook](notebooks/02_gp_bayesian_optimization.ipynb). It asks which learning
+rate to evaluate next when model-training runs are expensive. A Gaussian
+process represents both predicted validation loss and uncertainty at untried
+learning rates, and an acquisition rule turns that uncertainty into a decision.
+
+The ML problem stays fixed while you design the optimizer itself. Change the
+GP's prior level, plausible variation, smoothness, and observation noise, then
+change how strongly the acquisition rule explores. You can compare how those
+choices alter the next proposed experiment and the complete search path before
+mapping the same sequential loop to your own project.
+
+The exercise uses a fixed table of simulated training results, so it runs
+quickly and consistently without a GPU. It also compares the GP-guided search
+with random search under the same eight-run budget.
+
 ## Getting the notebook running
 
 You will need Python **3.11 or 3.12**. If you downloaded a ZIP, extract it first. Open a terminal in the extracted folder—the one containing this README and `requirements.txt`.
