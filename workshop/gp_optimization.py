@@ -13,7 +13,7 @@ def _as_finite_vector(values, name):
     return array
 
 
-def rbf_kernel(x_left, x_right, length_scale=0.65, signal_std=0.10):
+def rbf_kernel(x_left, x_right, length_scale=0.50, signal_std=0.10):
     """Covariance between inputs under a radial-basis-function kernel."""
     x_left = _as_finite_vector(x_left, 'x_left')
     x_right = _as_finite_vector(x_right, 'x_right')
@@ -30,7 +30,7 @@ def gp_posterior(
     x_query,
     *,
     prior_mean=0.45,
-    length_scale=0.65,
+    length_scale=0.50,
     signal_std=0.10,
     noise_std=0.015,
 ):
@@ -115,7 +115,7 @@ def run_bayesian_optimization(
     budget,
     *,
     prior_mean=0.45,
-    length_scale=0.65,
+    length_scale=0.50,
     signal_std=0.10,
     noise_std=0.015,
     exploration=1.25,
