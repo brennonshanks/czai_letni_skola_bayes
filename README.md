@@ -44,11 +44,21 @@ The ML problem stays fixed while you design the optimizer itself. Change the
 GP's prior level, plausible variation, smoothness, and observation noise, then
 change how strongly the acquisition rule explores. You can compare how those
 choices alter the next proposed experiment and the complete search path before
-mapping the same sequential loop to your own project.
+mapping the same sequential loop to your own project. A final optional section
+then refits the GP hyperparameters before every decision by maximizing the
+marginal likelihood, and contrasts that empirical-Bayes approach with keeping
+your assumptions fixed.
 
 The exercise uses a fixed table of simulated training results, so it runs
-quickly and consistently without a GPU. It also compares the GP-guided search
-with random search under the same eight-run budget.
+quickly and consistently without a GPU. Each cached run is a noisy draw around
+a hidden smooth performance curve. That curve and the simulator's noise scale
+are kept in a separate reveal table and loaded only after the search. The final
+comparison scores GP-guided and random experiment selection by the true average
+loss at each method's posterior-mean recommendation, under the same eight-run
+budget, and contrasts the GP recommendation with the lowest observed run.
+
+`scripts/generate_gp_tuning_results.py` regenerates both tables from the
+documented curve, noise model, and random seed.
 
 ## Getting the notebook running
 
