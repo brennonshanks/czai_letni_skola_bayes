@@ -91,4 +91,6 @@ Try to install the packages and run the first setup cell before the session. Ins
 
 If Python says a package is missing, check that your notebook is using the same `.venv` environment where you installed the packages. If you have run cells out of order and the results seem inconsistent, restart the notebook kernel and run the cells again from the top.
 
+For `ModuleNotFoundError: No module named 'nutpie'`, rerun `python -m pip install -r requirements.txt` in the activated environment. `nutpie` is required for the NUTS sampler and is included in that file. Alternatively, uncomment the `%pip install` line in the casino notebook's first setup cell and run it to install dependencies into the active notebook kernel. Restart the kernel afterward, then run from the top. Use `%pip`, rather than `!pip`, to target the notebook's Python environment.
+
 The notebook has optional extensions. It is fine to finish the main exercise first and return to those if you have time. Aim to explain what you chose, what evidence supported it, and which assumption you would want to investigate next.
