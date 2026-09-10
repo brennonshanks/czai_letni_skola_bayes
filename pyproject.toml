@@ -1,0 +1,33 @@
+[project]
+name = "czai-letni-skola-bayes"
+version = "0.1.0"
+description = "Bayesian decisions workshop: how much do you trust your prediction?"
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.11,<3.13"
+dependencies = [
+    "numpy>=1.26,<3",
+    "scipy>=1.12,<2",
+    "pandas>=2.2,<3",
+    "matplotlib>=3.8,<4",
+    "pymc>=5.20,<6",
+    "nutpie>=0.16,<1",
+    "arviz>=0.20,<1",
+    "jupyterlab>=4.2,<5",
+    "ipywidgets>=8.1,<9",
+    "nbclient>=0.10,<1",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8,<9",
+]
+
+# The notebooks add the repository root to `sys.path`, so the `workshop`
+# package does not need to be built or installed. Omitting `[build-system]`
+# keeps this a uv "virtual" project: `uv sync` installs the dependencies only.
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+# Same reason: make the repository root importable for `workshop` and `scripts`.
+pythonpath = ["."]

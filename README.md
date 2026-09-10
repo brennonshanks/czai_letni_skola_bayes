@@ -62,7 +62,35 @@ documented curve, noise model, and random seed.
 
 ## Getting the notebook running
 
-You will need Python **3.11 or 3.12**. If you downloaded a ZIP, extract it first. Open a terminal in the extracted folder—the one containing this README and `requirements.txt`.
+Use [uv](https://docs.astral.sh/uv/). Open a terminal in this folder—the one
+containing this README—and run:
+
+```sh
+uv sync
+uv run jupyter lab
+```
+
+That installs the exact package versions from `uv.lock`, downloading Python
+3.11 or 3.12 if needed, and opens JupyterLab. The same commands work on macOS,
+Linux, and Windows. Use `uv run pytest` for the tests.
+
+If you do not have uv yet, install it once:
+
+```sh
+# macOS or Linux
+curl -LsSf https://astral.sh/uv/install.sh | sh
+```
+
+```powershell
+# Windows, in PowerShell
+powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+```
+
+### Alternative: pip and venv
+
+If you would rather not install uv, you can use Python's own tools. You will
+need Python **3.11 or 3.12**. `requirements.txt` lists the same packages as
+`pyproject.toml`.
 
 On macOS or Linux, run:
 
@@ -91,7 +119,9 @@ For Python 3.12, use `py -3.12` in the first command. If PowerShell blocks activ
 .venv\Scripts\python.exe -m jupyterlab
 ```
 
-These commands create a separate Python environment, install the packages, and open JupyterLab in your browser. In JupyterLab, open the `notebooks` folder and start with `01_casino.ipynb`. You can run each cell with **Shift+Enter**. Work from top to bottom, since later cells use results from earlier ones.
+### Using JupyterLab
+
+Either route opens JupyterLab in your browser. In JupyterLab, open the `notebooks` folder and start with `01_casino.ipynb`. You can run each cell with **Shift+Enter**. Work from top to bottom, since later cells use results from earlier ones.
 
 If you prefer VS Code, install the **Python** and **Jupyter** extensions, open the notebook there, and select the Python environment in `.venv` as the notebook kernel.
 
@@ -101,6 +131,6 @@ Try to install the packages and run the first setup cell before the session. Ins
 
 If Python says a package is missing, check that your notebook is using the same `.venv` environment where you installed the packages. If you have run cells out of order and the results seem inconsistent, restart the notebook kernel and run the cells again from the top.
 
-For `ModuleNotFoundError: No module named 'nutpie'`, rerun `python -m pip install -r requirements.txt` in the activated environment. `nutpie` is required for the NUTS sampler and is included in that file. Alternatively, uncomment the `%pip install` line in the casino notebook's first setup cell and run it to install dependencies into the active notebook kernel. Restart the kernel afterward, then run from the top. Use `%pip`, rather than `!pip`, to target the notebook's Python environment.
+For `ModuleNotFoundError: No module named 'nutpie'`, rerun `uv sync` (or `python -m pip install -r requirements.txt` in the activated environment). `nutpie` is required for the NUTS sampler and is included in that file. Alternatively, uncomment the `%pip install` line in the casino notebook's first setup cell and run it to install dependencies into the active notebook kernel. Restart the kernel afterward, then run from the top. Use `%pip`, rather than `!pip`, to target the notebook's Python environment.
 
 The notebook has optional extensions. It is fine to finish the main exercise first and return to those if you have time. Aim to explain what you chose, what evidence supported it, and which assumption you would want to investigate next.
